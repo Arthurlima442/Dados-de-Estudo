@@ -2,6 +2,7 @@ import Foundation
 
 protocol DataServiceProtocol {
     func loadCategories() throws -> [Category]
+    func loadQuizzes() throws -> [Quiz]
 }
 
 class DataService: DataServiceProtocol {
@@ -26,6 +27,26 @@ class DataService: DataServiceProtocol {
         let categories = jsonObject["categories"] ?? []
 
         return categories
+    }
+
+    /// Carrega os quizzes do arquivo JSON
+    func loadQuizzes() throws -> [Quiz] {
+        // Encontra o arquivo JSON no bundle
+        guard let fileURL = Bundle.main.url(forResource: jsonFileName, withExtension: "json") else {
+            throw DataServiceError.fileNotFound
+        }
+
+        // Lê o conteúdo do arquivo
+        let fileData = try Data(contentsOf: fileURL)
+
+        // Decodifica o JSON
+        let decoder = JSONDecoder()
+        let jsonObject = try decoder.decode([String: [Quiz]].self, from: fileData)
+
+        // Extrai os quizzes
+        let quizzes = jsonObject["quizzes"] ?? []
+
+        return quizzes
     }
 }
 

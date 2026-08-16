@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupBotaoQuiz()
         loadData()
     }
 
@@ -30,6 +31,18 @@ class HomeViewController: UIViewController {
     private func setupTableView() {
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
+    }
+
+    /// Configura o botão de quiz
+    private func setupBotaoQuiz() {
+        homeView.botaoQuiz.addTarget(self, action: #selector(abrirQuiz), for: .touchUpInside)
+    }
+
+    /// Abre a tela de quiz
+    @objc private func abrirQuiz() {
+        let quizVM = QuizViewModel()
+        let quizVC = QuizViewController(viewModel: quizVM)
+        navigationController?.pushViewController(quizVC, animated: true)
     }
 
     /// Carrega as categorias do ViewModel
