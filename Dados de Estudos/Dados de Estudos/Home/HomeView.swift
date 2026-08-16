@@ -31,15 +31,6 @@ class HomeView: UIView {
         return button
     }()
 
-    private(set) var tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .plain)
-        table.backgroundColor = .systemBackground
-        table.separatorStyle = .singleLine
-        table.rowHeight = UITableView.automaticDimension
-        table.estimatedRowHeight = 80
-        return table
-    }()
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -49,52 +40,36 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    /// Configura a interface visual com Auto Layout
+    /// Configura a interface visual
     private func setupUI() {
-        // Define a cor de fundo
         backgroundColor = .systemBackground
 
-        // Adiciona os elementos na view
         addSubview(titleLabel)
         addSubview(botaoQuiz)
         addSubview(botaoConteudo)
-        addSubview(tableView)
 
-        // Ativa o Auto Layout
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         botaoQuiz.translatesAutoresizingMaskIntoConstraints = false
         botaoConteudo.translatesAutoresizingMaskIntoConstraints = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
 
         // Título no topo
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
 
-        // Botões lado a lado
+        // Botões lado a lado (centralizados)
         NSLayoutConstraint.activate([
-            botaoQuiz.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            botaoQuiz.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 60),
             botaoQuiz.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             botaoQuiz.trailingAnchor.constraint(equalTo: botaoConteudo.leadingAnchor, constant: -12),
-            botaoQuiz.heightAnchor.constraint(equalToConstant: 50),
+            botaoQuiz.heightAnchor.constraint(equalToConstant: 60),
 
-            botaoConteudo.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            botaoConteudo.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 60),
             botaoConteudo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             botaoConteudo.widthAnchor.constraint(equalTo: botaoQuiz.widthAnchor),
-            botaoConteudo.heightAnchor.constraint(equalToConstant: 50)
+            botaoConteudo.heightAnchor.constraint(equalToConstant: 60)
         ])
-
-        // TableView abaixo dos botões
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: botaoQuiz.bottomAnchor, constant: 24),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-
-        // Registra a célula para reutilização
-        tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.identifier)
     }
 }
