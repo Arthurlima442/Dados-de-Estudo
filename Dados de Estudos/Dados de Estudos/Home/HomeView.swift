@@ -1,23 +1,7 @@
-//
-//  HomeView.swift
-//  Dados de Estudos
-//
-//  Created by Arthur Lima on 16/08/26.
-//
 import UIKit
 
-// MARK: - HomeView
-// Responsável por construir a interface visual da tela inicial
-// Contém a UITableView que exibe a lista de categorias
-
 class HomeView: UIView {
-    
-    // MARK: - Properties
-    
-    weak var delegate: HomeViewDelegate?
-    
-    // MARK: - UI Components
-    
+
     private(set) var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.backgroundColor = .systemBackground
@@ -26,7 +10,7 @@ class HomeView: UIView {
         table.estimatedRowHeight = 80
         return table
     }()
-    
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Swift Academy"
@@ -34,47 +18,42 @@ class HomeView: UIView {
         label.textColor = .label
         return label
     }()
-    
-    // MARK: - Init
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Setup
-    
-    /// Configura a interface visual com Auto Layout programático
+
+    /// Configura a interface visual com Auto Layout
     private func setupUI() {
+        // Define a cor de fundo
         backgroundColor = .systemBackground
-        
+
+        // Adiciona os elementos na view
         addSubview(titleLabel)
         addSubview(tableView)
-        
+
+        // Ativa o Auto Layout
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+
+        // Define as constraints (posicionamento)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
+
             tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        
+
+        // Registra a célula para reutilização
         tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.identifier)
     }
-}
-
-// MARK: - HomeViewDelegate
-
-protocol HomeViewDelegate: AnyObject {
-    func homeViewDidSelectCategory(at index: Int)
 }
