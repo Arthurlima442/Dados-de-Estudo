@@ -33,9 +33,10 @@ class HomeViewController: UIViewController {
         homeView.tableView.dataSource = self
     }
 
-    /// Configura o botão de quiz
+    /// Configura os botões
     private func setupBotaoQuiz() {
         homeView.botaoQuiz.addTarget(self, action: #selector(abrirQuiz), for: .touchUpInside)
+        homeView.botaoConteudo.addTarget(self, action: #selector(scrollParaConteudo), for: .touchUpInside)
     }
 
     /// Abre a tela de quiz
@@ -43,6 +44,11 @@ class HomeViewController: UIViewController {
         let quizVM = QuizViewModel()
         let quizVC = QuizViewController(viewModel: quizVM)
         navigationController?.pushViewController(quizVC, animated: true)
+    }
+
+    /// Faz scroll para a tabela de conteúdo
+    @objc private func scrollParaConteudo() {
+        homeView.tableView.setContentOffset(.zero, animated: true)
     }
 
     /// Carrega as categorias do ViewModel
