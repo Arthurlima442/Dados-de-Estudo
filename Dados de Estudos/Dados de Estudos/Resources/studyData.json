@@ -1,0 +1,92 @@
+// ====================================
+// Arquivo: studyData.json
+// Localização: Resources/JSON/
+// Responsabilidade: Armazenar os dados de estudo em JSON
+//
+// Este arquivo contém TODOS os dados de estudo do app.
+// Estrutura:
+// - categories: array de categorias
+//   - cada categoria tem: id, title, description, topics
+//   - cada topic tem: id, title, content
+//   - cada content tem: explanation, example, keyPoints
+//
+// IMPORTANTE:
+// - IDs devem ser ÚNICOS
+// - Cada categoria tem vários tópicos
+// - Cada tópico tem um conteúdo de estudo
+// - Quando adicionar novo conteúdo, apenas adicione neste arquivo
+// - A arquitetura AUTOMÁTICAMENTE carrega e exibe tudo aqui
+// ====================================
+
+{
+  "categories": [
+    {
+      "id": "fundamentos",
+      "title": "Fundamentos",
+      "description": "Conceitos básicos de Swift",
+      "topics": [
+        {
+          "id": "variaveis",
+          "title": "Variáveis",
+          "content": {
+            "explanation": "Uma variável é um espaço na memória que armazena um valor que pode ser alterado. Use var para criar uma variável.",
+            "example": "var idade = 25\nidade = 26 // Você pode alterar",
+            "keyPoints": [
+              "Mutável - pode ser alterada",
+              "Tipo é inferido automaticamente",
+              "Use para valores que mudam"
+            ]
+          }
+        },
+        {
+          "id": "constantes",
+          "title": "Constantes",
+          "content": {
+            "explanation": "Uma constante é um espaço na memória que armazena um valor que NÃO pode ser alterado. Use let para criar uma constante.",
+            "example": "let nome = \"Arthur\"\n// nome = \"João\" // Erro! Não pode alterar",
+            "keyPoints": [
+              "Imutável - não pode ser alterada",
+              "Mais seguro que variáveis",
+              "Preferido em Swift"
+            ]
+          }
+        },
+        {
+          "id": "tipos_dados",
+          "title": "Tipos de Dados",
+          "content": {
+            "explanation": "Swift é uma linguagem fortemente tipada. Os principais tipos são: Int (números inteiros), Double/Float (números decimais), String (texto), Bool (verdadeiro/falso).",
+            "example": "let numero: Int = 42\nlet decimal: Double = 3.14\nlet texto: String = \"Hello\"\nlet ativo: Bool = true",
+            "keyPoints": [
+              "Int para números inteiros",
+              "Double para decimais (mais preciso)",
+              "String para texto",
+              "Bool para verdadeiro/falso"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "optionals",
+      "title": "Optionals",
+      "description": "Trabalhando com valores que podem ser nulos",
+      "topics": [
+        {
+          "id": "o_que_sao_optionals",
+          "title": "O que são Optionals",
+          "content": {
+            "explanation": "Um Optional é um tipo que pode conter um valor ou ser nil (nulo). É representado com ?. Use optionals quando um valor pode não existir.",
+            "example": "var email: String? = nil\nemail = \"arthur@email.com\"\nvar telefone: String? // Também é nil",
+            "keyPoints": [
+              "Representado com ?",
+              "Pode ser nil (nulo)",
+              "Evita crashes inesperados",
+              "Swift força você a tratar nil explicitamente"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
