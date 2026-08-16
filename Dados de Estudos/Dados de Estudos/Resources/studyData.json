@@ -1,23 +1,3 @@
-// ====================================
-// Arquivo: studyData.json
-// Localização: Resources/JSON/
-// Responsabilidade: Armazenar os dados de estudo em JSON
-//
-// Este arquivo contém TODOS os dados de estudo do app.
-// Estrutura:
-// - categories: array de categorias
-//   - cada categoria tem: id, title, description, topics
-//   - cada topic tem: id, title, content
-//   - cada content tem: explanation, example, keyPoints
-//
-// IMPORTANTE:
-// - IDs devem ser ÚNICOS
-// - Cada categoria tem vários tópicos
-// - Cada tópico tem um conteúdo de estudo
-// - Quando adicionar novo conteúdo, apenas adicione neste arquivo
-// - A arquitetura AUTOMÁTICAMENTE carrega e exibe tudo aqui
-// ====================================
-
 {
   "categories": [
     {
@@ -43,7 +23,7 @@
           "title": "Constantes",
           "content": {
             "explanation": "Uma constante é um espaço na memória que armazena um valor que NÃO pode ser alterado. Use let para criar uma constante.",
-            "example": "let nome = \"Arthur\"\n// nome = \"João\" // Erro! Não pode alterar",
+            "example": "let nome = \"Arthur\"\n// nome = \"João\" // Erro!",
             "keyPoints": [
               "Imutável - não pode ser alterada",
               "Mais seguro que variáveis",
@@ -55,13 +35,41 @@
           "id": "tipos_dados",
           "title": "Tipos de Dados",
           "content": {
-            "explanation": "Swift é uma linguagem fortemente tipada. Os principais tipos são: Int (números inteiros), Double/Float (números decimais), String (texto), Bool (verdadeiro/falso).",
+            "explanation": "Swift é fortemente tipada. Os principais tipos são: Int, Double, String e Bool.",
             "example": "let numero: Int = 42\nlet decimal: Double = 3.14\nlet texto: String = \"Hello\"\nlet ativo: Bool = true",
             "keyPoints": [
               "Int para números inteiros",
-              "Double para decimais (mais preciso)",
+              "Double para decimais",
               "String para texto",
               "Bool para verdadeiro/falso"
+            ]
+          }
+        },
+        {
+          "id": "arrays",
+          "title": "Arrays",
+          "content": {
+            "explanation": "Array é uma coleção ordenada de valores do mesmo tipo. Acesse elementos pelo índice começando em 0.",
+            "example": "let numeros = [1, 2, 3, 4, 5]\nlet primeiro = numeros[0] // 1\nvar lista = [String]()\nlista.append(\"item\")",
+            "keyPoints": [
+              "Coleção ordenada",
+              "Todos elementos mesmo tipo",
+              "Índice começa em 0",
+              "Mutável com var"
+            ]
+          }
+        },
+        {
+          "id": "dicionarios",
+          "title": "Dicionários",
+          "content": {
+            "explanation": "Dictionary é uma coleção de pares chave-valor. Acesse valores usando a chave.",
+            "example": "let pessoa = [\"nome\": \"Arthur\", \"idade\": \"25\"]\nlet nome = pessoa[\"nome\"] // Optional(\"Arthur\")",
+            "keyPoints": [
+              "Pares chave-valor",
+              "Acesso por chave",
+              "Retorna Optional",
+              "Sem ordem garantida"
             ]
           }
         }
@@ -76,13 +84,482 @@
           "id": "o_que_sao_optionals",
           "title": "O que são Optionals",
           "content": {
-            "explanation": "Um Optional é um tipo que pode conter um valor ou ser nil (nulo). É representado com ?. Use optionals quando um valor pode não existir.",
-            "example": "var email: String? = nil\nemail = \"arthur@email.com\"\nvar telefone: String? // Também é nil",
+            "explanation": "Um Optional é um tipo que pode conter um valor ou ser nil. Representado com ?.",
+            "example": "var email: String? = nil\nemail = \"arthur@email.com\"\nvar telefone: String? // nil",
             "keyPoints": [
               "Representado com ?",
-              "Pode ser nil (nulo)",
-              "Evita crashes inesperados",
-              "Swift força você a tratar nil explicitamente"
+              "Pode ser nil",
+              "Evita crashes",
+              "Força tratamento seguro"
+            ]
+          }
+        },
+        {
+          "id": "unwrapping",
+          "title": "Unwrapping",
+          "content": {
+            "explanation": "Unwrapping extrai o valor de um Optional. Use if let, guard let ou nil coalescing.",
+            "example": "var nome: String? = \"Arthur\"\nif let n = nome {\n    print(n)\n}\nlet padrao = nome ?? \"Desconhecido\"",
+            "keyPoints": [
+              "if let é seguro",
+              "guard let é melhor",
+              "?? valor padrão",
+              "! força (cuidado!)"
+            ]
+          }
+        },
+        {
+          "id": "optional_chaining",
+          "title": "Optional Chaining",
+          "content": {
+            "explanation": "Acesse propriedades e métodos de um Optional usando ?. Se for nil, retorna nil.",
+            "example": "struct Pessoa {\n    var endereco: String?\n}\nvar p: Pessoa? = Pessoa(endereco: \"Rua A\")\nlet rua = p?.endereco // Optional(\"Rua A\")",
+            "keyPoints": [
+              "Use ? para acessar",
+              "Retorna Optional",
+              "Seguro se nil",
+              "Evita crashes"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "struct",
+      "title": "Struct",
+      "description": "Estruturas de dados e valores",
+      "topics": [
+        {
+          "id": "definindo_struct",
+          "title": "Definindo uma Struct",
+          "content": {
+            "explanation": "Struct agrupa propriedades relacionadas. É um tipo valor (cópia), não referência.",
+            "example": "struct Pessoa {\n    let nome: String\n    var idade: Int\n}\nlet p = Pessoa(nome: \"Arthur\", idade: 25)",
+            "keyPoints": [
+              "Agrupa propriedades",
+              "Tipo valor",
+              "Init automático",
+              "Mutabilidade com var"
+            ]
+          }
+        },
+        {
+          "id": "metodos_struct",
+          "title": "Métodos em Struct",
+          "content": {
+            "explanation": "Structs podem ter métodos. Use mutating para modificar self.",
+            "example": "struct Contador {\n    var valor = 0\n    mutating func incrementar() {\n        valor += 1\n    }\n}\nvar c = Contador()\nc.incrementar() // valor = 1",
+            "keyPoints": [
+              "Métodos dentro struct",
+              "mutating para modificar",
+              "self é cópia",
+              "Muito usado em Swift"
+            ]
+          }
+        },
+        {
+          "id": "valor_vs_referencia",
+          "title": "Valor vs Referência",
+          "content": {
+            "explanation": "Struct = valor (cópia independente). Class = referência (mesmo objeto).",
+            "example": "struct Ponto {\n    var x: Int\n}\nvar p1 = Ponto(x: 0)\nvar p2 = p1\np2.x = 5\nprint(p1.x) // 0 - não mudou",
+            "keyPoints": [
+              "Struct = cópia",
+              "Class = referência",
+              "Struct mais seguro",
+              "Use struct por padrão"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "class",
+      "title": "Class",
+      "description": "Tipos de referência em Swift",
+      "topics": [
+        {
+          "id": "definindo_class",
+          "title": "Definindo uma Class",
+          "content": {
+            "explanation": "Class é um tipo referência. Todas cópias apontam para o mesmo objeto.",
+            "example": "class Veiculo {\n    var marca: String\n    init(marca: String) {\n        self.marca = marca\n    }\n}\nlet carro = Veiculo(marca: \"Toyota\")",
+            "keyPoints": [
+              "Tipo referência",
+              "Init obrigatório",
+              "Suporta herança",
+              "Uma instância"
+            ]
+          }
+        },
+        {
+          "id": "heranca",
+          "title": "Herança",
+          "content": {
+            "explanation": "Class filha herda propriedades e métodos da class pai. Use super para acessar pai.",
+            "example": "class Carro: Veiculo {\n    var velocidade: Int = 0\n    func acelerar() {\n        velocidade += 10\n    }\n}\nlet meu = Carro(marca: \"Honda\")",
+            "keyPoints": [
+              "Herança linear",
+              "super para pai",
+              "override para substituir",
+              "Apenas classes"
+            ]
+          }
+        },
+        {
+          "id": "deinitializer",
+          "title": "Deinitializer",
+          "content": {
+            "explanation": "deinit é chamado quando a instância é destruída. Use para limpar recursos.",
+            "example": "class Arquivo {\n    init() {\n        print(\"Abriu arquivo\")\n    }\n    deinit {\n        print(\"Fechou arquivo\")\n    }\n}\nvar f: Arquivo? = Arquivo()\nf = nil // Chama deinit",
+            "keyPoints": [
+              "Chamado ao destruir",
+              "Apenas classes",
+              "Limpar recursos",
+              "Automático com nil"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "enum",
+      "title": "Enum",
+      "description": "Enumerações e tipos seguros",
+      "topics": [
+        {
+          "id": "basico_enum",
+          "title": "Básico de Enum",
+          "content": {
+            "explanation": "Enum define conjunto de casos possíveis. Mais seguro que String.",
+            "example": "enum DiaSemana {\n    case segunda, terca, quarta\n}\nvar hoje = DiaSemana.segunda\nhoje = .terca",
+            "keyPoints": [
+              "Define valores",
+              "Mais seguro",
+              "Type-safe",
+              "Padrão em Swift"
+            ]
+          }
+        },
+        {
+          "id": "associated_values",
+          "title": "Associated Values",
+          "content": {
+            "explanation": "Cada case pode ter dados associados. Muito usado em APIs e resultados.",
+            "example": "enum Resultado {\n    case sucesso(String)\n    case erro(String)\n}\nlet r = Resultado.sucesso(\"Ok\")\nswitch r {\ncase .sucesso(let msg): print(msg)\ncase .erro(let err): print(err)\n}",
+            "keyPoints": [
+              "Dados com cases",
+              "Pattern matching",
+              "Muito seguro",
+              "Comum em erros"
+            ]
+          }
+        },
+        {
+          "id": "raw_values",
+          "title": "Raw Values",
+          "content": {
+            "explanation": "Cada case pode ter um raw value (Int, String, etc).",
+            "example": "enum Prioridade: Int {\n    case baixa = 1\n    case media = 2\n    case alta = 3\n}\nlet p = Prioridade(rawValue: 2) // Optional(.media)",
+            "keyPoints": [
+              "Raw value por case",
+              "Int ou String",
+              "Init com rawValue",
+              "Retorna Optional"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "protocol",
+      "title": "Protocol",
+      "description": "Contratos e interfaces",
+      "topics": [
+        {
+          "id": "basico_protocol",
+          "title": "Básico de Protocol",
+          "content": {
+            "explanation": "Protocol é um contrato que define propriedades e métodos que types DEVEM ter.",
+            "example": "protocol Animal {\n    var nome: String { get }\n    func fazer_som()\n}\nstruct Cachorro: Animal {\n    let nome: String\n    func fazer_som() {\n        print(\"Au au\")\n    }\n}",
+            "keyPoints": [
+              "Define contrato",
+              "Conformar é obrigatório",
+              "Get/set control",
+              "Muito importante"
+            ]
+          }
+        },
+        {
+          "id": "protocol_extension",
+          "title": "Protocol Extension",
+          "content": {
+            "explanation": "Estenda protocol para fornecer implementação padrão.",
+            "example": "protocol Animal {\n    func fazer_som()\n}\nextension Animal {\n    func fazer_som() {\n        print(\"Som genérico\")\n    }\n}",
+            "keyPoints": [
+              "Implementação padrão",
+              "Extensível",
+              "Polimorfismo",
+              "Muito poderoso"
+            ]
+          }
+        },
+        {
+          "id": "protocol_composition",
+          "title": "Protocol Composition",
+          "content": {
+            "explanation": "Um tipo pode conformar múltiplas protocols. Use & para compor.",
+            "example": "protocol Nomeavel { var nome: String { get } }\nprotocol Descritivel { func descrever() }\nstruct Pessoa: Nomeavel, Descritivel {\n    let nome: String\n    func descrever() { print(nome) }\n}",
+            "keyPoints": [
+              "Múltiplas protocols",
+              "Type & Protocol",
+              "Composição",
+              "Flexível"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "closure",
+      "title": "Closure",
+      "description": "Funções anônimas e callbacks",
+      "topics": [
+        {
+          "id": "basico_closure",
+          "title": "Básico de Closure",
+          "content": {
+            "explanation": "Closure é uma função sem nome que pode ser armazenada em variável.",
+            "example": "let saudacao: (String) -> String = { nome in\n    return \"Olá, \\(nome)\"\n}\nprint(saudacao(\"Arthur\"))",
+            "keyPoints": [
+              "Função sem nome",
+              "Armazenável",
+              "in separa parâmetros",
+              "Retorna valor"
+            ]
+          }
+        },
+        {
+          "id": "closure_array",
+          "title": "Closure com Array",
+          "content": {
+            "explanation": "Use closures com map, filter, sorted para transformar dados.",
+            "example": "let numeros = [1, 2, 3, 4, 5]\nlet pares = numeros.filter { $0 % 2 == 0 }\nlet dobrados = numeros.map { $0 * 2 }",
+            "keyPoints": [
+              "filter seleciona",
+              "map transforma",
+              "$0 primeiro param",
+              "Muito usado"
+            ]
+          }
+        },
+        {
+          "id": "escaping_closure",
+          "title": "Escaping Closure",
+          "content": {
+            "explanation": "@escaping closure pode ser executada após função retornar.",
+            "example": "func fazer(_ closure: @escaping () -> Void) {\n    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {\n        closure()\n    }\n}\nfazer { print(\"Depois de 1s\") }",
+            "keyPoints": [
+              "@escaping requerida",
+              "Após função",
+              "Callbacks",
+              "Async operations"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "codable",
+      "title": "Codable",
+      "description": "Convertendo JSON para Swift",
+      "topics": [
+        {
+          "id": "basico_codable",
+          "title": "Básico de Codable",
+          "content": {
+            "explanation": "Codable permite converter JSON para structs. Apenas conformar com Codable.",
+            "example": "struct Usuario: Codable {\n    let id: Int\n    let nome: String\n}\nlet json = \"{\\\"id\\\": 1, \\\"nome\\\": \\\"Arthur\\\"}\"\nlet u = try JSONDecoder().decode(Usuario.self, from: json.data(using: .utf8)!)",
+            "keyPoints": [
+              "Conformar Codable",
+              "JSONDecoder para JSON",
+              "JSONEncoder para Swift",
+              "Nomes devem bater"
+            ]
+          }
+        },
+        {
+          "id": "custom_codable",
+          "title": "Custom Codable",
+          "content": {
+            "explanation": "Use CodingKeys quando JSON diferir dos nomes Swift.",
+            "example": "struct Usuario: Codable {\n    let nome: String\n    let idade: Int\n    enum CodingKeys: String, CodingKey {\n        case nome = \"user_name\"\n        case idade = \"age\"\n    }\n}",
+            "keyPoints": [
+              "Mapeamento custom",
+              "CodingKeys enum",
+              "String raw value",
+              "Flexível"
+            ]
+          }
+        },
+        {
+          "id": "date_codable",
+          "title": "Codando Datas",
+          "content": {
+            "explanation": "Datas precisam de DateFormatter para Codable.",
+            "example": "struct Evento: Codable {\n    let nome: String\n    let data: Date\n}\nlet decoder = JSONDecoder()\ndecoder.dateDecodingStrategy = .iso8601",
+            "keyPoints": [
+              "DateFormatter",
+              "dateDecodingStrategy",
+              "iso8601",
+              "Custom formatting"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "urlsession",
+      "title": "URLSession",
+      "description": "Fazendo requisições HTTP",
+      "topics": [
+        {
+          "id": "basico_urlsession",
+          "title": "Básico de URLSession",
+          "content": {
+            "explanation": "URLSession faz requisições HTTP/HTTPS. Sempre em background thread.",
+            "example": "let url = URL(string: \"https://api.example.com/users\")!\nlet task = URLSession.shared.dataTask(with: url) { data, response, error in\n    if let data = data {\n        print(String(data: data, encoding: .utf8)!)\n    }\n}\ntask.resume()",
+            "keyPoints": [
+              "URLSession.shared",
+              "dataTask(with:)",
+              "Chamada async",
+              "Sempre resume()"
+            ]
+          }
+        },
+        {
+          "id": "json_urlsession",
+          "title": "JSON com URLSession",
+          "content": {
+            "explanation": "Combine URLSession com Codable para fazer requisições e parsear JSON.",
+            "example": "let url = URL(string: \"https://api.example.com/user\")!\nURLSession.shared.dataTask(with: url) { data, _, _ in\n    if let data = data {\n        let user = try? JSONDecoder().decode(Usuario.self, from: data)\n    }\n}.resume()",
+            "keyPoints": [
+              "Combinar com Codable",
+              "JSONDecoder no callback",
+              "Try? catch",
+              "Main thread UI"
+            ]
+          }
+        },
+        {
+          "id": "post_urlsession",
+          "title": "POST com URLSession",
+          "content": {
+            "explanation": "Envie dados com POST usando URLRequest.",
+            "example": "var request = URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\nrequest.httpBody = try? JSONEncoder().encode(usuario)\nURLSession.shared.dataTask(with: request).resume()",
+            "keyPoints": [
+              "URLRequest",
+              "httpMethod = POST",
+              "httpBody com JSON",
+              "Headers importantes"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mvvm",
+      "title": "MVVM",
+      "description": "Arquitetura de aplicativos iOS",
+      "topics": [
+        {
+          "id": "entender_mvvm",
+          "title": "Entender MVVM",
+          "content": {
+            "explanation": "MVVM = Model, View, ViewModel. ViewModel processa dados entre Model e View.",
+            "example": "// Model: dados\nstruct Usuario: Codable { let nome: String }\n\n// ViewModel: lógica\nclass LoginViewModel {\n    var usuario: Usuario?\n    func login() { /* carrega dados */ }\n}\n\n// View: UI",
+            "keyPoints": [
+              "Model = dados",
+              "ViewModel = lógica",
+              "View = UI",
+              "Separação clara"
+            ]
+          }
+        },
+        {
+          "id": "viewcontroller_mvvm",
+          "title": "ViewController no MVVM",
+          "content": {
+            "explanation": "ViewController apenas cria UI e fala com ViewModel. Sem regras de negócio.",
+            "example": "class LoginVC: UIViewController {\n    let viewModel = LoginViewModel()\n    \n    override func viewDidLoad() {\n        super.viewDidLoad()\n        viewModel.login()\n    }\n}",
+            "keyPoints": [
+              "Apenas UI",
+              "Chama ViewModel",
+              "Sem lógica",
+              "Testável"
+            ]
+          }
+        },
+        {
+          "id": "binding_mvvm",
+          "title": "Binding no MVVM",
+          "content": {
+            "explanation": "ViewController observa mudanças no ViewModel e atualiza UI.",
+            "example": "class ViewModel {\n    @Published var nome = \"\"\n}\n\nclass ViewController: UIViewController {\n    @ObservedObject var vm = ViewModel()\n    // UI atualiza automaticamente\n}",
+            "keyPoints": [
+              "@Published",
+              "@ObservedObject",
+              "Reatividade",
+              "Automático"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "uikit",
+      "title": "UIKit",
+      "description": "Framework para criar UIs no iOS",
+      "topics": [
+        {
+          "id": "uiviewcontroller",
+          "title": "UIViewController",
+          "content": {
+            "explanation": "UIViewController controla uma tela. Gerencia views e lógica de apresentação.",
+            "example": "class MeuViewController: UIViewController {\n    override func viewDidLoad() {\n        super.viewDidLoad()\n        view.backgroundColor = .white\n        title = \"Minha Tela\"\n    }\n}",
+            "keyPoints": [
+              "Controla uma tela",
+              "Gerencia views",
+              "viewDidLoad principal",
+              "Ciclo de vida"
+            ]
+          }
+        },
+        {
+          "id": "autolayout",
+          "title": "Auto Layout",
+          "content": {
+            "explanation": "Auto Layout define posição/tamanho com constraints. Funciona em qualquer dispositivo.",
+            "example": "let label = UILabel()\nlabel.translatesAutoresizingMaskIntoConstraints = false\nview.addSubview(label)\nNSLayoutConstraint.activate([\n    label.centerXAnchor.constraint(equalTo: view.centerXAnchor),\n    label.topAnchor.constraint(equalTo: view.topAnchor, constant: 20)\n])",
+            "keyPoints": [
+              "Constraints",
+              "Responsivo",
+              "Qualquer tela",
+              "ViewCode melhor"
+            ]
+          }
+        },
+        {
+          "id": "uitableview",
+          "title": "UITableView",
+          "content": {
+            "explanation": "UITableView exibe lista de dados. Reutiliza células para performance.",
+            "example": "class MeuVC: UITableViewController {\n    override func tableView(_ tv: UITableView, numberOfRowsInSection: Int) -> Int {\n        return 10\n    }\n    override func tableView(_ tv: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {\n        let cell = tv.dequeueReusableCell(withIdentifier: \"cell\", for: indexPath)\n        return cell\n    }\n}",
+            "keyPoints": [
+              "Reutiliza células",
+              "Eficiente",
+              "DataSource",
+              "Delegate"
             ]
           }
         }
