@@ -54,377 +54,316 @@ class QuizViewModel {
         self.quizzes.shuffle()
     }
 
-    /// Lista 1 de quizzes (perguntas originais)
+    /// Lista 1 de quizzes (perguntas básicas + comportamentais para junior)
     private func carregarLista1() {
         self.quizzes = [
-            Quiz(
-                id: "quiz_1",
-                pergunta: "O que é uma variável em Swift?",
-                respostas: [
-                    Resposta(texto: "Um espaço na memória que armazena um valor mutável", correta: true),
-                    Resposta(texto: "Um valor que não pode ser alterado", correta: false),
-                    Resposta(texto: "Um tipo de dados específico", correta: false),
-                    Resposta(texto: "Uma constante do sistema", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_2",
-                pergunta: "Qual é a diferença entre var e let?",
-                respostas: [
-                    Resposta(texto: "var é mutável, let é imutável", correta: true),
-                    Resposta(texto: "Não há diferença", correta: false),
-                    Resposta(texto: "let é mutável, var é imutável", correta: false),
-                    Resposta(texto: "Apenas var pode ser usada", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_3",
-                pergunta: "Qual tipo é usado para números decimais?",
-                respostas: [
-                    Resposta(texto: "Double", correta: true),
-                    Resposta(texto: "Int", correta: false),
-                    Resposta(texto: "String", correta: false),
-                    Resposta(texto: "Bool", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_4",
-                pergunta: "O índice do primeiro elemento de um array é?",
-                respostas: [
-                    Resposta(texto: "0", correta: true),
-                    Resposta(texto: "1", correta: false),
-                    Resposta(texto: "-1", correta: false),
-                    Resposta(texto: "Depende do array", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_5",
-                pergunta: "Como você acessa um valor em um dicionário?",
-                respostas: [
-                    Resposta(texto: "Usando a chave entre colchetes", correta: true),
-                    Resposta(texto: "Usando um índice", correta: false),
-                    Resposta(texto: "Usando um método get()", correta: false),
-                    Resposta(texto: "Acessando diretamente", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_6",
-                pergunta: "O que significa o símbolo ? após um tipo?",
-                respostas: [
-                    Resposta(texto: "Que o valor pode ser nil", correta: true),
-                    Resposta(texto: "Que é uma pergunta", correta: false),
-                    Resposta(texto: "Que é obrigatório", correta: false),
-                    Resposta(texto: "Que é um comentário", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_7",
-                pergunta: "Qual é a forma segura de unwrap um Optional?",
-                respostas: [
-                    Resposta(texto: "if let", correta: true),
-                    Resposta(texto: "force (!) apenas", correta: false),
-                    Resposta(texto: "Não há forma segura", correta: false),
-                    Resposta(texto: "var apenas", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_8",
-                pergunta: "Struct é um tipo valor ou referência?",
-                respostas: [
-                    Resposta(texto: "Tipo valor", correta: true),
-                    Resposta(texto: "Tipo referência", correta: false),
-                    Resposta(texto: "Ambos", correta: false),
-                    Resposta(texto: "Nenhum dos dois", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_9",
-                pergunta: "Class é um tipo valor ou referência?",
-                respostas: [
-                    Resposta(texto: "Tipo referência", correta: true),
-                    Resposta(texto: "Tipo valor", correta: false),
-                    Resposta(texto: "Ambos", correta: false),
-                    Resposta(texto: "Nenhum dos dois", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_10",
-                pergunta: "O que é uma enumeração (enum)?",
-                respostas: [
-                    Resposta(texto: "Um conjunto de casos possíveis", correta: true),
-                    Resposta(texto: "Uma função", correta: false),
-                    Resposta(texto: "Uma classe", correta: false),
-                    Resposta(texto: "Uma variável", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_11",
-                pergunta: "O que é um protocol em Swift?",
-                respostas: [
-                    Resposta(texto: "Um contrato que define propriedades e métodos", correta: true),
-                    Resposta(texto: "Uma classe", correta: false),
-                    Resposta(texto: "Uma variável", correta: false),
-                    Resposta(texto: "Uma função", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_12",
-                pergunta: "O que é um closure?",
-                respostas: [
-                    Resposta(texto: "Uma função sem nome", correta: true),
-                    Resposta(texto: "Uma classe", correta: false),
-                    Resposta(texto: "Uma variável", correta: false),
-                    Resposta(texto: "Um tipo de loop", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_13",
-                pergunta: "O que permite Codable?",
-                respostas: [
-                    Resposta(texto: "Converter JSON para Swift e vice-versa", correta: true),
-                    Resposta(texto: "Apenas criar variáveis", correta: false),
-                    Resposta(texto: "Apenas classes", correta: false),
-                    Resposta(texto: "Nada especial", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_14",
-                pergunta: "Qual classe faz requisições HTTP em Swift?",
-                respostas: [
-                    Resposta(texto: "URLSession", correta: true),
-                    Resposta(texto: "HTTPRequest", correta: false),
-                    Resposta(texto: "Network", correta: false),
-                    Resposta(texto: "Request", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_15",
-                pergunta: "O que significa MVVM?",
-                respostas: [
-                    Resposta(texto: "Model View ViewModel", correta: true),
-                    Resposta(texto: "Model View Variable Module", correta: false),
-                    Resposta(texto: "Multiple Value View Model", correta: false),
-                    Resposta(texto: "Main View Virtual Model", correta: false)
-                ]
-            ),
-            Quiz(
-                id: "quiz_16",
-                pergunta: "O que é UITableView?",
-                respostas: [
-                    Resposta(texto: "Um componente que exibe lista de dados", correta: true),
-                    Resposta(texto: "Um botão", correta: false),
-                    Resposta(texto: "Uma tela", correta: false),
-                    Resposta(texto: "Um label", correta: false)
-                ]
-            )
+            Quiz(id: "quiz_1", pergunta: "O que é uma variável em Swift?", respostas: [
+                Resposta(texto: "Um espaço na memória que armazena um valor mutável", correta: true),
+                Resposta(texto: "Um valor que não pode ser alterado", correta: false),
+                Resposta(texto: "Um tipo de dados específico", correta: false),
+                Resposta(texto: "Uma constante do sistema", correta: false)
+            ]),
+            Quiz(id: "quiz_2", pergunta: "Qual é a diferença entre var e let?", respostas: [
+                Resposta(texto: "var é mutável, let é imutável", correta: true),
+                Resposta(texto: "Não há diferença", correta: false),
+                Resposta(texto: "let é mutável, var é imutável", correta: false),
+                Resposta(texto: "Apenas var pode ser usada", correta: false)
+            ]),
+            Quiz(id: "quiz_3", pergunta: "Como você evita crashes por Optional?", respostas: [
+                Resposta(texto: "Usando if let ou guard let", correta: true),
+                Resposta(texto: "Ignorando optionals", correta: false),
+                Resposta(texto: "Usando ! sempre", correta: false),
+                Resposta(texto: "Não é possível evitar", correta: false)
+            ]),
+            Quiz(id: "quiz_4", pergunta: "O que são Memory Leaks em iOS?", respostas: [
+                Resposta(texto: "Memória alocada mas não liberada", correta: true),
+                Resposta(texto: "Variáveis deletadas", correta: false),
+                Resposta(texto: "Funções muito longas", correta: false),
+                Resposta(texto: "Arrays muito grandes", correta: false)
+            ]),
+            Quiz(id: "quiz_5", pergunta: "Como você debugaria um crash aleatório?", respostas: [
+                Resposta(texto: "Verificar logs, usar Xcode debugger e reproduzir", correta: true),
+                Resposta(texto: "Deletar código até funcionar", correta: false),
+                Resposta(texto: "Esperar o app parar de crashear sozinho", correta: false),
+                Resposta(texto: "Reiniciar o Xcode", correta: false)
+            ]),
+            Quiz(id: "quiz_6", pergunta: "Qual é o ciclo de vida de um UIViewController?", respostas: [
+                Resposta(texto: "init → loadView → viewDidLoad → viewWillAppear → viewDidAppear", correta: true),
+                Resposta(texto: "viewDidLoad → viewDidAppear → init", correta: false),
+                Resposta(texto: "Não tem ciclo, é linear", correta: false),
+                Resposta(texto: "Depende do desenvolvedor", correta: false)
+            ]),
+            Quiz(id: "quiz_7", pergunta: "O que fazer se recebe uma tarefa que não entende?", respostas: [
+                Resposta(texto: "Fazer perguntas ao time e documentar o entendimento", correta: true),
+                Resposta(texto: "Começar a codar e descobrir", correta: false),
+                Resposta(texto: "Pedir para outra pessoa fazer", correta: false),
+                Resposta(texto: "Ignorar e fazer o que acha correto", correta: false)
+            ]),
+            Quiz(id: "quiz_8", pergunta: "Strong vs Weak references: quando usar weak?", respostas: [
+                Resposta(texto: "Em closures para evitar retain cycles", correta: true),
+                Resposta(texto: "Sempre, é mais seguro", correta: false),
+                Resposta(texto: "Nunca, strong é melhor", correta: false),
+                Resposta(texto: "Só em classes grandes", correta: false)
+            ]),
+            Quiz(id: "quiz_9", pergunta: "Como você resolveria conflito com colega de código?", respostas: [
+                Resposta(texto: "Conversar, entender a visão dele e encontrar solução juntos", correta: true),
+                Resposta(texto: "Insistir que sua solução é melhor", correta: false),
+                Resposta(texto: "Ignorar e fazer seu jeito", correta: false),
+                Resposta(texto: "Levar ao gerente", correta: false)
+            ]),
+            Quiz(id: "quiz_10", pergunta: "Por que usar MVVM em vez de MVC?", respostas: [
+                Resposta(texto: "Separação melhor, VC fica mais leve, fácil testar", correta: true),
+                Resposta(texto: "Não há diferença real", correta: false),
+                Resposta(texto: "MVVM é mais lento", correta: false),
+                Resposta(texto: "MVC é melhor para iOS", correta: false)
+            ]),
+            Quiz(id: "quiz_11", pergunta: "O que é Dependency Injection?", respostas: [
+                Resposta(texto: "Passar dependências pelo init em vez de criar dentro", correta: true),
+                Resposta(texto: "Uma injeção de código malicioso", correta: false),
+                Resposta(texto: "Uma biblioteca do iOS", correta: false),
+                Resposta(texto: "Um padrão de design avançado", correta: false)
+            ]),
+            Quiz(id: "quiz_12", pergunta: "Como você aproveitaria feedback de code review?", respostas: [
+                Resposta(texto: "Entender, aprender e aplicar melhorias no código", correta: true),
+                Resposta(texto: "Ignorar se discordar", correta: false),
+                Resposta(texto: "Deixar para próxima vez", correta: false),
+                Resposta(texto: "Ficar na defensiva", correta: false)
+            ]),
+            Quiz(id: "quiz_13", pergunta: "Auto Layout: qual é o objetivo principal?", respostas: [
+                Resposta(texto: "Adaptar layout para diferentes tamanhos de tela", correta: true),
+                Resposta(texto: "Fazer interface mais bonita", correta: false),
+                Resposta(texto: "Agilizar desenvolvimento", correta: false),
+                Resposta(texto: "Substituir Storyboard", correta: false)
+            ]),
+            Quiz(id: "quiz_14", pergunta: "Como você manteria código limpo e legível?", respostas: [
+                Resposta(texto: "Nomes descritivos, funções pequenas, comentários quando necessário", correta: true),
+                Resposta(texto: "Muitos comentários explicando tudo", correta: false),
+                Resposta(texto: "Sem comentários, código deve falar", correta: false),
+                Resposta(texto: "Qualquer forma, contanto que funcione", correta: false)
+            ]),
+            Quiz(id: "quiz_15", pergunta: "O que é um Protocol em Swift?", respostas: [
+                Resposta(texto: "Um contrato definindo interface que tipos devem seguir", correta: true),
+                Resposta(texto: "Um tipo de classe", correta: false),
+                Resposta(texto: "Uma função especial", correta: false),
+                Resposta(texto: "Uma constante global", correta: false)
+            ]),
+            Quiz(id: "quiz_16", pergunta: "Como você criaria um teste para uma classe?", respostas: [
+                Resposta(texto: "Isolar a classe, injetar dependências mock, testar comportamento", correta: true),
+                Resposta(texto: "Clicar no app manualmente", correta: false),
+                Resposta(texto: "Testar a UI diretamente", correta: false),
+                Resposta(texto: "Não é necessário testar", correta: false)
+            ])
         ]
+        embaralharRespostas()
     }
 
-    /// Lista 2 de quizzes (novas perguntas)
+    /// Lista 2 de quizzes (perguntas intermediárias + comportamentais)
     private func carregarLista2() {
         self.quizzes = [
-            Quiz(id: "quiz_17", pergunta: "Qual é o tipo padrão para String em Swift?", respostas: [
-                Resposta(texto: "String", correta: true),
-                Resposta(texto: "NSString", correta: false),
-                Resposta(texto: "Char", correta: false),
-                Resposta(texto: "Text", correta: false)
-            ]),
-            Quiz(id: "quiz_18", pergunta: "Como você itera sobre um array?", respostas: [
+            Quiz(id: "quiz_17", pergunta: "Como você itera sobre um array?", respostas: [
                 Resposta(texto: "Usando for-in", correta: true),
                 Resposta(texto: "Usando while", correta: false),
                 Resposta(texto: "Usando repeat", correta: false),
                 Resposta(texto: "Não é possível", correta: false)
             ]),
-            Quiz(id: "quiz_19", pergunta: "O que é um guard statement?", respostas: [
+            Quiz(id: "quiz_18", pergunta: "O que é um guard statement?", respostas: [
                 Resposta(texto: "Uma forma segura de unwrap optionals", correta: true),
                 Resposta(texto: "Uma função de proteção", correta: false),
                 Resposta(texto: "Um tipo de loop", correta: false),
                 Resposta(texto: "Um comentário", correta: false)
             ]),
-            Quiz(id: "quiz_20", pergunta: "Qual é a extensão padrão de arquivo Swift?", respostas: [
-                Resposta(texto: ".swift", correta: true),
-                Resposta(texto: ".sw", correta: false),
-                Resposta(texto: ".swft", correta: false),
-                Resposta(texto: ".s", correta: false)
+            Quiz(id: "quiz_19", pergunta: "Como você trataria um erro de requisição HTTP?", respostas: [
+                Resposta(texto: "Verificar error, status code e dados recebidos", correta: true),
+                Resposta(texto: "Ignorar e assumir sucesso", correta: false),
+                Resposta(texto: "Sempre fazer retry", correta: false),
+                Resposta(texto: "Mostrar mensagem genérica", correta: false)
             ]),
-            Quiz(id: "quiz_21", pergunta: "O que é extension em Swift?", respostas: [
-                Resposta(texto: "Adiciona funcionalidade a tipos existentes", correta: true),
+            Quiz(id: "quiz_20", pergunta: "O que é um guard statement?", respostas: [
+                Resposta(texto: "Protege código, saindo cedo se condição falha", correta: true),
                 Resposta(texto: "Um tipo de variável", correta: false),
-                Resposta(texto: "Um tipo de constante", correta: false),
-                Resposta(texto: "Um operador", correta: false)
-            ]),
-            Quiz(id: "quiz_22", pergunta: "Como você declara uma função em Swift?", respostas: [
-                Resposta(texto: "func nomeFuncao() { }", correta: true),
-                Resposta(texto: "function nomeFuncao() { }", correta: false),
-                Resposta(texto: "def nomeFuncao() { }", correta: false),
-                Resposta(texto: "fn nomeFuncao() { }", correta: false)
-            ]),
-            Quiz(id: "quiz_23", pergunta: "O que é Type Aliasing?", respostas: [
-                Resposta(texto: "Dar um nome alternativo a um tipo", correta: true),
-                Resposta(texto: "Deletar um tipo", correta: false),
-                Resposta(texto: "Copiar um tipo", correta: false),
-                Resposta(texto: "Modificar um tipo", correta: false)
-            ]),
-            Quiz(id: "quiz_24", pergunta: "Qual é o operador de coalescência nula?", respostas: [
-                Resposta(texto: "??", correta: true),
-                Resposta(texto: "??!", correta: false),
-                Resposta(texto: "?!", correta: false),
-                Resposta(texto: "!?", correta: false)
-            ]),
-            Quiz(id: "quiz_25", pergunta: "O que é Self em Swift?", respostas: [
-                Resposta(texto: "Referência ao tipo atual", correta: true),
-                Resposta(texto: "Uma variável global", correta: false),
-                Resposta(texto: "Um tipo de dado", correta: false),
-                Resposta(texto: "Uma função", correta: false)
-            ]),
-            Quiz(id: "quiz_26", pergunta: "Como você evita memory leaks em closures?", respostas: [
-                Resposta(texto: "Usando [weak self]", correta: true),
-                Resposta(texto: "Usando [strong self]", correta: false),
-                Resposta(texto: "Não é possível", correta: false),
-                Resposta(texto: "Usando try-catch", correta: false)
-            ]),
-            Quiz(id: "quiz_27", pergunta: "O que é defer?", respostas: [
-                Resposta(texto: "Código que executa antes de sair de um escopo", correta: true),
-                Resposta(texto: "Um tipo de variável", correta: false),
-                Resposta(texto: "Um tipo de função", correta: false),
-                Resposta(texto: "Um comentário", correta: false)
-            ]),
-            Quiz(id: "quiz_28", pergunta: "Como você cria uma instância de uma struct?", respostas: [
-                Resposta(texto: "let instancia = NomeStruct()", correta: true),
-                Resposta(texto: "new NomeStruct()", correta: false),
-                Resposta(texto: "NomeStruct.init()", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
-            ]),
-            Quiz(id: "quiz_29", pergunta: "O que é mutating em Swift?", respostas: [
-                Resposta(texto: "Modifica a instância de um tipo valor", correta: true),
-                Resposta(texto: "Modifica apenas referências", correta: false),
-                Resposta(texto: "Deleta dados", correta: false),
-                Resposta(texto: "Cria cópia", correta: false)
-            ]),
-            Quiz(id: "quiz_30", pergunta: "Qual é o modificador de acesso mais restritivo?", respostas: [
-                Resposta(texto: "private", correta: true),
-                Resposta(texto: "internal", correta: false),
-                Resposta(texto: "public", correta: false),
-                Resposta(texto: "open", correta: false)
-            ]),
-            Quiz(id: "quiz_31", pergunta: "O que é KVO (Key-Value Observing)?", respostas: [
-                Resposta(texto: "Observar mudanças em propriedades", correta: true),
-                Resposta(texto: "Um tipo de variável", correta: false),
-                Resposta(texto: "Uma função", correta: false),
-                Resposta(texto: "Um operador", correta: false)
-            ]),
-            Quiz(id: "quiz_32", pergunta: "Como você converge duas arrays em uma?", respostas: [
-                Resposta(texto: "Usando +", correta: true),
-                Resposta(texto: "Usando &", correta: false),
-                Resposta(texto: "Usando |", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
-            ])
-        ]
-    }
-
-    /// Lista 3 de quizzes (novas perguntas)
-    private func carregarLista3() {
-        self.quizzes = [
-            Quiz(id: "quiz_33", pergunta: "O que é um subscript em Swift?", respostas: [
-                Resposta(texto: "Permite acessar elementos usando colchetes", correta: true),
-                Resposta(texto: "Um tipo de função", correta: false),
                 Resposta(texto: "Uma constante", correta: false),
                 Resposta(texto: "Um comentário", correta: false)
             ]),
-            Quiz(id: "quiz_34", pergunta: "Como você define propriedades computadas?", respostas: [
-                Resposta(texto: "Usando get e set", correta: true),
-                Resposta(texto: "Usando func", correta: false),
-                Resposta(texto: "Usando var apenas", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
+            Quiz(id: "quiz_21", pergunta: "Como você melhoraria performance de uma tableview?", respostas: [
+                Resposta(texto: "Reusabilidade de cells, lazy loading, otimizar imageView", correta: true),
+                Resposta(texto: "Aumentar número de cells", correta: false),
+                Resposta(texto: "Não há como melhorar", correta: false),
+                Resposta(texto: "Usar ScrollView em vez disso", correta: false)
             ]),
-            Quiz(id: "quiz_35", pergunta: "O que é AnyObject em Swift?", respostas: [
-                Resposta(texto: "Tipo base para todas as classes", correta: true),
-                Resposta(texto: "Um tipo de variável", correta: false),
-                Resposta(texto: "Um tipo de função", correta: false),
-                Resposta(texto: "Um operador", correta: false)
-            ]),
-            Quiz(id: "quiz_36", pergunta: "Como você cria um dicionário em Swift?", respostas: [
-                Resposta(texto: "var dict: [String: Int] = [:]", correta: true),
-                Resposta(texto: "var dict = {}", correta: false),
-                Resposta(texto: "var dict = Map()", correta: false),
-                Resposta(texto: "var dict = Dictionary", correta: false)
-            ]),
-            Quiz(id: "quiz_37", pergunta: "O que é herança em OOP?", respostas: [
-                Resposta(texto: "Classe filha herda propriedades da classe pai", correta: true),
-                Resposta(texto: "Copiar código", correta: false),
+            Quiz(id: "quiz_22", pergunta: "O que é um Extension em Swift?", respostas: [
+                Resposta(texto: "Adiciona funcionalidade a tipos existentes", correta: true),
+                Resposta(texto: "Um tipo de classe", correta: false),
                 Resposta(texto: "Uma variável", correta: false),
-                Resposta(texto: "Um função", correta: false)
+                Resposta(texto: "Um operador", correta: false)
             ]),
-            Quiz(id: "quiz_38", pergunta: "Como você substitui um método de uma classe pai?", respostas: [
-                Resposta(texto: "Usando override", correta: true),
-                Resposta(texto: "Usando override func", correta: false),
-                Resposta(texto: "Não é possível", correta: false),
-                Resposta(texto: "Usando new", correta: false)
+            Quiz(id: "quiz_23", pergunta: "Como você aprende nova tecnologia rapidamente?", respostas: [
+                Resposta(texto: "Estudar documentação, fazer pequenos projetos, praticar", correta: true),
+                Resposta(texto: "Só assistir vídeos", correta: false),
+                Resposta(texto: "Copiar código de tutorials", correta: false),
+                Resposta(texto: "Esperar outro ensinar", correta: false)
             ]),
-            Quiz(id: "quiz_39", pergunta: "O que é failable initializer?", respostas: [
-                Resposta(texto: "Inicializador que pode retornar nil", correta: true),
-                Resposta(texto: "Inicializador que falha", correta: false),
+            Quiz(id: "quiz_24", pergunta: "Qual é a diferença entre init? e init!?", respostas: [
+                Resposta(texto: "init? retorna nil se falha, init! faz crash", correta: true),
+                Resposta(texto: "Não há diferença", correta: false),
+                Resposta(texto: "init! é mais seguro", correta: false),
+                Resposta(texto: "São o mesmo", correta: false)
+            ]),
+            Quiz(id: "quiz_25", pergunta: "Como lidar com prazo apertado?", respostas: [
+                Resposta(texto: "Priorizar features, comunicar riscos, pedir ajuda", correta: true),
+                Resposta(texto: "Ignorar qualidade do código", correta: false),
+                Resposta(texto: "Fazer tudo sozinho mais rápido", correta: false),
+                Resposta(texto: "Prometer que vai entregar no prazo", correta: false)
+            ]),
+            Quiz(id: "quiz_26", pergunta: "O que é Closure Capture List?", respostas: [
+                Resposta(texto: "Define como o closure captura variáveis ([weak self])", correta: true),
+                Resposta(texto: "Uma lista de closures", correta: false),
+                Resposta(texto: "Um tipo de array", correta: false),
+                Resposta(texto: "Uma função", correta: false)
+            ]),
+            Quiz(id: "quiz_27", pergunta: "Como você escalaria código para projeto maior?", respostas: [
+                Resposta(texto: "Modularizar, usar MVVM, testes, documentação", correta: true),
+                Resposta(texto: "Copiar estrutura de projeto pequeno", correta: false),
+                Resposta(texto: "Não há diferença", correta: false),
+                Resposta(texto: "Usar mais libraries", correta: false)
+            ]),
+            Quiz(id: "quiz_28", pergunta: "O que é Type Method em Swift?", respostas: [
+                Resposta(texto: "Método chamado no tipo, não na instância", correta: true),
                 Resposta(texto: "Um tipo de variável", correta: false),
-                Resposta(texto: "Um tipo de função", correta: false)
+                Resposta(texto: "Uma constante", correta: false),
+                Resposta(texto: "Um comentário", correta: false)
             ]),
-            Quiz(id: "quiz_40", pergunta: "Como você cria um enum com valores associados?", respostas: [
-                Resposta(texto: "case exemplo(String)", correta: true),
-                Resposta(texto: "case exemplo: String", correta: false),
-                Resposta(texto: "case exemplo = String", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
+            Quiz(id: "quiz_29", pergunta: "Como você documentaria código complexo?", respostas: [
+                Resposta(texto: "Comentários breves, documentação de função, exemplos", correta: true),
+                Resposta(texto: "Sem comentários, código fala", correta: false),
+                Resposta(texto: "Muitos comentários explicando tudo", correta: false),
+                Resposta(texto: "Documentação separada", correta: false)
             ]),
-            Quiz(id: "quiz_41", pergunta: "O que é raw value em enum?", respostas: [
-                Resposta(texto: "Um valor padrão para cada caso", correta: true),
-                Resposta(texto: "Um tipo de variável", correta: false),
+            Quiz(id: "quiz_30", pergunta: "O que é um Designated Initializer?", respostas: [
+                Resposta(texto: "Inicializador principal que inicializa todas as propriedades", correta: true),
+                Resposta(texto: "Um inicializador especial", correta: false),
                 Resposta(texto: "Uma função", correta: false),
-                Resposta(texto: "Um operador", correta: false)
+                Resposta(texto: "Uma variável", correta: false)
             ]),
-            Quiz(id: "quiz_42", pergunta: "Como você implementa um protocol?", respostas: [
-                Resposta(texto: "Usando extension ou class que adere ao protocol", correta: true),
-                Resposta(texto: "Usando herança", correta: false),
-                Resposta(texto: "Usando imports", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
+            Quiz(id: "quiz_31", pergunta: "Como você liida com mudança de requisito?", respostas: [
+                Resposta(texto: "Entender novo requisito, replanejar, comunicar impacto", correta: true),
+                Resposta(texto: "Reclamar e fazer do jeito antigo", correta: false),
+                Resposta(texto: "Ignorar e continuar", correta: false),
+                Resposta(texto: "Fazer rápido sem pensar", correta: false)
             ]),
-            Quiz(id: "quiz_43", pergunta: "O que são associated types em protocols?", respostas: [
-                Resposta(texto: "Placeholders para tipos que serão definidos depois", correta: true),
-                Resposta(texto: "Um tipo de variável", correta: false),
-                Resposta(texto: "Um tipo de função", correta: false),
-                Resposta(texto: "Um operador", correta: false)
-            ]),
-            Quiz(id: "quiz_44", pergunta: "Como você captura valores em closures?", respostas: [
-                Resposta(texto: "Automaticamente pelo escopo", correta: true),
-                Resposta(texto: "Sempre explicitamente", correta: false),
-                Resposta(texto: "Nunca captura", correta: false),
-                Resposta(texto: "Usando @capture", correta: false)
-            ]),
-            Quiz(id: "quiz_45", pergunta: "O que é escaping closure?", respostas: [
-                Resposta(texto: "Closure que é chamada fora do escopo da função", correta: true),
-                Resposta(texto: "Um closure dentro de outro", correta: false),
-                Resposta(texto: "Um closure que falha", correta: false),
-                Resposta(texto: "Um tipo de variável", correta: false)
-            ]),
-            Quiz(id: "quiz_46", pergunta: "Como você decodifica JSON com Codable?", respostas: [
-                Resposta(texto: "Usando JSONDecoder().decode()", correta: true),
-                Resposta(texto: "Usando JSON.parse()", correta: false),
-                Resposta(texto: "Usando JSONDeserializer", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
-            ]),
-            Quiz(id: "quiz_47", pergunta: "Como você codifica para JSON com Codable?", respostas: [
-                Resposta(texto: "Usando JSONEncoder().encode()", correta: true),
-                Resposta(texto: "Usando JSON.stringify()", correta: false),
-                Resposta(texto: "Usando JSONSerializer", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
-            ]),
-            Quiz(id: "quiz_48", pergunta: "O que é CodingKey em Codable?", respostas: [
-                Resposta(texto: "Mapeia propriedades para chaves JSON diferentes", correta: true),
-                Resposta(texto: "Uma chave de segurança", correta: false),
-                Resposta(texto: "Um tipo de variável", correta: false),
+            Quiz(id: "quiz_32", pergunta: "O que é Computed Property?", respostas: [
+                Resposta(texto: "Propriedade que calcula valor via get/set", correta: true),
+                Resposta(texto: "Uma constante", correta: false),
+                Resposta(texto: "Uma variável normal", correta: false),
                 Resposta(texto: "Uma função", correta: false)
             ])
         ]
+        embaralharRespostas()
     }
 
-    /// Lista 4 de quizzes (novas perguntas)
+    /// Lista 3 de quizzes (perguntas sobre padrões + comportamentais)
+    private func carregarLista3() {
+        self.quizzes = [
+            Quiz(id: "quiz_33", pergunta: "O que é um Singleton Pattern?", respostas: [
+                Resposta(texto: "Uma classe com apenas uma instância no app", correta: true),
+                Resposta(texto: "Uma função especial", correta: false),
+                Resposta(texto: "Um tipo de variável", correta: false),
+                Resposta(texto: "Uma constante global", correta: false)
+            ]),
+            Quiz(id: "quiz_34", pergunta: "Como você testaria um método privado?", respostas: [
+                Resposta(texto: "Testar através do método público que a chama", correta: true),
+                Resposta(texto: "Tornar público só para testes", correta: false),
+                Resposta(texto: "Não é necessário", correta: false),
+                Resposta(texto: "Ignorar métodos privados", correta: false)
+            ]),
+            Quiz(id: "quiz_35", pergunta: "Por que separar Model, View e Logic?", respostas: [
+                Resposta(texto: "Para reutilização, testabilidade e manutenção", correta: true),
+                Resposta(texto: "Não há razão real", correta: false),
+                Resposta(texto: "Só para complexidade", correta: false),
+                Resposta(texto: "Para confundir", correta: false)
+            ]),
+            Quiz(id: "quiz_36", pergunta: "Como você trata Concorrência em iOS?", respostas: [
+                Resposta(texto: "Usar GCD (DispatchQueue) ou async/await", correta: true),
+                Resposta(texto: "Fazer tudo na main thread", correta: false),
+                Resposta(texto: "Não é problema", correta: false),
+                Resposta(texto: "Usar threads manualmente", correta: false)
+            ]),
+            Quiz(id: "quiz_37", pergunta: "Como você se prepara para entrevista técnica?", respostas: [
+                Resposta(texto: "Estudar conceitos, fazer projetos, revisar erros", correta: true),
+                Resposta(texto: "Decorar respostas", correta: false),
+                Resposta(texto: "Confiar na sorte", correta: false),
+                Resposta(texto: "Não se preparar", correta: false)
+            ]),
+            Quiz(id: "quiz_38", pergunta: "O que é um Notification Center?", respostas: [
+                Resposta(texto: "Sistema para comunicação entre objetos desacoplados", correta: true),
+                Resposta(texto: "Um push notification", correta: false),
+                Resposta(texto: "Uma variável", correta: false),
+                Resposta(texto: "Uma função", correta: false)
+            ]),
+            Quiz(id: "quiz_39", pergunta: "Quando usar String Interpolation?", respostas: [
+                Resposta(texto: "Para concatenar strings de forma legível", correta: true),
+                Resposta(texto: "Sempre", correta: false),
+                Resposta(texto: "Nunca", correta: false),
+                Resposta(texto: "Só em testes", correta: false)
+            ]),
+            Quiz(id: "quiz_40", pergunta: "Como você liida com muitas notificações de observadores?", respostas: [
+                Resposta(texto: "Remover quando VC desaparece, usar weak references", correta: true),
+                Resposta(texto: "Deixar todas ativas", correta: false),
+                Resposta(texto: "Não há problema", correta: false),
+                Resposta(texto: "Usar apenas um observador", correta: false)
+            ]),
+            Quiz(id: "quiz_41", pergunta: "O que é KVC (Key-Value Coding)?", respostas: [
+                Resposta(texto: "Acessar propriedades através de strings", correta: true),
+                Resposta(texto: "Uma variável", correta: false),
+                Resposta(texto: "Uma função", correta: false),
+                Resposta(texto: "Um comentário", correta: false)
+            ]),
+            Quiz(id: "quiz_42", pergunta: "Como você se manteria atualizado na tecnologia?", respostas: [
+                Resposta(texto: "Ler blogs, acompanhar WWDC, praticar novidades", correta: true),
+                Resposta(texto: "Esperar outros explicarem", correta: false),
+                Resposta(texto: "Ignorar mudanças", correta: false),
+                Resposta(texto: "Só no trabalho", correta: false)
+            ]),
+            Quiz(id: "quiz_43", pergunta: "O que é Lazy Initialization?", respostas: [
+                Resposta(texto: "Criar recurso apenas quando for necessário", correta: true),
+                Resposta(texto: "Uma variável preguiçosa", correta: false),
+                Resposta(texto: "Uma função", correta: false),
+                Resposta(texto: "Um operador", correta: false)
+            ]),
+            Quiz(id: "quiz_44", pergunta: "Como você resolveria problema complexo?", respostas: [
+                Resposta(texto: "Dividir em partes pequenas, atacar uma por vez", correta: true),
+                Resposta(texto: "Tentar resolver tudo de uma vez", correta: false),
+                Resposta(texto: "Desistir fácil", correta: false),
+                Resposta(texto: "Pedir resposta pronta", correta: false)
+            ]),
+            Quiz(id: "quiz_45", pergunta: "O que é App Lifecycle em UIKit?", respostas: [
+                Resposta(texto: "Estados que o app passa: Not running, Inactive, Active, Background, Suspended", correta: true),
+                Resposta(texto: "Apenas active e inactive", correta: false),
+                Resposta(texto: "Não tem ciclo", correta: false),
+                Resposta(texto: "Gerenciado automaticamente", correta: false)
+            ]),
+            Quiz(id: "quiz_46", pergunta: "Como você buscaria ajuda quando travado?", respostas: [
+                Resposta(texto: "Pesquisar, pedir ao time, documentar solução", correta: true),
+                Resposta(texto: "Ficar frustrado", correta: false),
+                Resposta(texto: "Desistir", correta: false),
+                Resposta(texto: "Ignorar o problema", correta: false)
+            ]),
+            Quiz(id: "quiz_47", pergunta: "O que é ViewCode?", respostas: [
+                Resposta(texto: "Criar UI programaticamente sem Storyboard", correta: true),
+                Resposta(texto: "Um tipo de Storyboard", correta: false),
+                Resposta(texto: "Uma função", correta: false),
+                Resposta(texto: "Um comentário", correta: false)
+            ]),
+            Quiz(id: "quiz_48", pergunta: "Como você documentaria uma função complexa?", respostas: [
+                Resposta(texto: "Com documentação clara, exemplo de uso, parâmetros", correta: true),
+                Resposta(texto: "Sem documentação", correta: false),
+                Resposta(texto: "Com muitos comentários", correta: false),
+                Resposta(texto: "Não é necessário", correta: false)
+            ])
+        ]
+        embaralharRespostas()
+    }
+
+    /// Lista 4 de quizzes (perguntas sobre networking + comportamentais)
     private func carregarLista4() {
         self.quizzes = [
             Quiz(id: "quiz_49", pergunta: "Como você inicia uma requisição HTTP com URLSession?", respostas: [
@@ -433,199 +372,209 @@ class QuizViewModel {
                 Resposta(texto: "URLRequest.load()", correta: false),
                 Resposta(texto: "HTTP.request()", correta: false)
             ]),
-            Quiz(id: "quiz_50", pergunta: "O que é URLRequest em Swift?", respostas: [
-                Resposta(texto: "Um objeto que representa uma requisição HTTP", correta: true),
-                Resposta(texto: "Uma resposta de servidor", correta: false),
-                Resposta(texto: "Uma URL", correta: false),
-                Resposta(texto: "Um tipo de conexão", correta: false)
+            Quiz(id: "quiz_50", pergunta: "Como você trata erro de conexão?", respostas: [
+                Resposta(texto: "Verificar error e URLResponse, fazer retry se necessário", correta: true),
+                Resposta(texto: "Ignorar e tentar novamente", correta: false),
+                Resposta(texto: "Mostrar mensagem genérica", correta: false),
+                Resposta(texto: "Não há tratamento", correta: false)
             ]),
-            Quiz(id: "quiz_51", pergunta: "Como você trata erros em URLSession?", respostas: [
-                Resposta(texto: "Verificando se error != nil no completion handler", correta: true),
-                Resposta(texto: "Usando try-catch", correta: false),
-                Resposta(texto: "Usando do-catch", correta: false),
+            Quiz(id: "quiz_51", pergunta: "O que é um timeout em requisições?", respostas: [
+                Resposta(texto: "Tempo máximo de espera por resposta", correta: true),
+                Resposta(texto: "Um erro de servidor", correta: false),
+                Resposta(texto: "Uma falha de conexão", correta: false),
+                Resposta(texto: "Um retry automático", correta: false)
+            ]),
+            Quiz(id: "quiz_52", pergunta: "Como você liida com grande volume de dados?", respostas: [
+                Resposta(texto: "Usar streaming, paginação ou background download", correta: true),
+                Resposta(texto: "Baixar tudo de uma vez", correta: false),
+                Resposta(texto: "Não há solução", correta: false),
+                Resposta(texto: "Aumentar timeout", correta: false)
+            ]),
+            Quiz(id: "quiz_53", pergunta: "Como você se comportaria em erro de produção?", respostas: [
+                Resposta(texto: "Calmamente reproduzir, debugar, reportar achados", correta: true),
+                Resposta(texto: "Entrar em pânico", correta: false),
+                Resposta(texto: "Culpar outro", correta: false),
+                Resposta(texto: "Fingir que não viu", correta: false)
+            ]),
+            Quiz(id: "quiz_54", pergunta: "Como você criptografaria dados sensíveis?", respostas: [
+                Resposta(texto: "Usar Keychain para senhas, SSL/TLS para transmissão", correta: true),
+                Resposta(texto: "Armazenar em UserDefaults", correta: false),
+                Resposta(texto: "Deixar em texto plano", correta: false),
+                Resposta(texto: "Não é necessário", correta: false)
+            ]),
+            Quiz(id: "quiz_55", pergunta: "O que é SSL Pinning?", respostas: [
+                Resposta(texto: "Validar certificado específico em requisições HTTPS", correta: true),
+                Resposta(texto: "Um tipo de erro", correta: false),
+                Resposta(texto: "Uma função de rede", correta: false),
+                Resposta(texto: "Um protocolo", correta: false)
+            ]),
+            Quiz(id: "quiz_56", pergunta: "Como você testaria requisição HTTP?", respostas: [
+                Resposta(texto: "Mock URLSession, testar sucesso e erro", correta: true),
+                Resposta(texto: "Fazer requisição real no teste", correta: false),
+                Resposta(texto: "Não testar rede", correta: false),
+                Resposta(texto: "Ignorar testes de rede", correta: false)
+            ]),
+            Quiz(id: "quiz_57", pergunta: "Como você cachear dados de rede?", respostas: [
+                Resposta(texto: "URLCache built-in ou custom cache com expiração", correta: true),
+                Resposta(texto: "Não fazer cache", correta: false),
+                Resposta(texto: "Salvar tudo em disco", correta: false),
+                Resposta(texto: "Cache nunca expira", correta: false)
+            ]),
+            Quiz(id: "quiz_58", pergunta: "Como você se adapta a mudanças de API?", respostas: [
+                Resposta(texto: "Versionamento, testes, comunicar com backend", correta: true),
+                Resposta(texto: "Quebrar quando muda", correta: false),
+                Resposta(texto: "Ignorar mudanças", correta: false),
+                Resposta(texto: "Fazer workaround", correta: false)
+            ]),
+            Quiz(id: "quiz_59", pergunta: "O que é Queue Priority em DispatchQueue?", respostas: [
+                Resposta(texto: "Define importância de tarefa: userInteractive, default, utility", correta: true),
+                Resposta(texto: "Um tipo de erro", correta: false),
+                Resposta(texto: "Uma variável", correta: false),
+                Resposta(texto: "Uma função", correta: false)
+            ]),
+            Quiz(id: "quiz_60", pergunta: "Como você executaria tarefa em background?", respostas: [
+                Resposta(texto: "Usar DispatchQueue.global() ou async/await", correta: true),
+                Resposta(texto: "Executar na main thread", correta: false),
+                Resposta(texto: "Usar sleep", correta: false),
                 Resposta(texto: "Não é possível", correta: false)
             ]),
-            Quiz(id: "quiz_52", pergunta: "O que é HTTP status code 200?", respostas: [
-                Resposta(texto: "Sucesso", correta: true),
-                Resposta(texto: "Erro de servidor", correta: false),
-                Resposta(texto: "Não encontrado", correta: false),
-                Resposta(texto: "Acesso negado", correta: false)
-            ]),
-            Quiz(id: "quiz_53", pergunta: "O que é HTTP status code 404?", respostas: [
-                Resposta(texto: "Recurso não encontrado", correta: true),
-                Resposta(texto: "Erro de servidor", correta: false),
-                Resposta(texto: "Sucesso", correta: false),
-                Resposta(texto: "Acesso negado", correta: false)
-            ]),
-            Quiz(id: "quiz_54", pergunta: "Como você define o método HTTP em URLRequest?", respostas: [
-                Resposta(texto: "urlRequest.httpMethod = \"GET\"", correta: true),
-                Resposta(texto: "urlRequest.method = \"GET\"", correta: false),
-                Resposta(texto: "urlRequest.request = \"GET\"", correta: false),
-                Resposta(texto: "urlRequest.type = \"GET\"", correta: false)
-            ]),
-            Quiz(id: "quiz_55", pergunta: "O que é MVVM?", respostas: [
-                Resposta(texto: "Model, View, ViewModel", correta: true),
-                Resposta(texto: "Model, Variable, View, Module", correta: false),
-                Resposta(texto: "Module, View, Value, Model", correta: false),
-                Resposta(texto: "Main, Virtual, View, Module", correta: false)
-            ]),
-            Quiz(id: "quiz_56", pergunta: "Qual é a responsabilidade do ViewModel em MVVM?", respostas: [
-                Resposta(texto: "Gerenciar lógica de apresentação e preparar dados", correta: true),
-                Resposta(texto: "Desenhar a interface", correta: false),
-                Resposta(texto: "Conectar ao servidor", correta: false),
-                Resposta(texto: "Gerenciar banco de dados", correta: false)
-            ]),
-            Quiz(id: "quiz_57", pergunta: "Qual é a responsabilidade do Model em MVVM?", respostas: [
-                Resposta(texto: "Representar dados e lógica de negócio", correta: true),
-                Resposta(texto: "Desenhar a interface", correta: false),
-                Resposta(texto: "Gerenciar requisições HTTP", correta: false),
-                Resposta(texto: "Processar eventos de toque", correta: false)
-            ]),
-            Quiz(id: "quiz_58", pergunta: "Como você passa dados do ViewController para o ViewModel?", respostas: [
-                Resposta(texto: "Através do inicializador ou métodos", correta: true),
-                Resposta(texto: "Através de NotificationCenter", correta: false),
-                Resposta(texto: "Através de UserDefaults", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
-            ]),
-            Quiz(id: "quiz_59", pergunta: "O que é UIViewController em UIKit?", respostas: [
-                Resposta(texto: "Gerencia uma tela e interações do usuário", correta: true),
-                Resposta(texto: "Um botão", correta: false),
-                Resposta(texto: "Um label", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
-            ]),
-            Quiz(id: "quiz_60", pergunta: "Como você adiciona uma subview a uma view?", respostas: [
-                Resposta(texto: "Usando addSubview()", correta: true),
-                Resposta(texto: "Usando add()", correta: false),
-                Resposta(texto: "Usando appendChild()", correta: false),
-                Resposta(texto: "Usando insert()", correta: false)
-            ]),
-            Quiz(id: "quiz_61", pergunta: "O que é Auto Layout?", respostas: [
-                Resposta(texto: "Sistema de posicionamento de views com constraints", correta: true),
-                Resposta(texto: "Um tipo de animação", correta: false),
+            Quiz(id: "quiz_61", pergunta: "O que é Race Condition?", respostas: [
+                Resposta(texto: "Múltiplas threads acessando recurso simultaneamente", correta: true),
+                Resposta(texto: "Um erro de rede", correta: false),
                 Resposta(texto: "Uma função", correta: false),
-                Resposta(texto: "Um tipo de dado", correta: false)
+                Resposta(texto: "Uma variável", correta: false)
             ]),
-            Quiz(id: "quiz_62", pergunta: "Como você cria uma constraint em código?", respostas: [
-                Resposta(texto: "NSLayoutConstraint.activate([constraint])", correta: true),
-                Resposta(texto: "constraint.add()", correta: false),
-                Resposta(texto: "view.addConstraint()", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
+            Quiz(id: "quiz_62", pergunta: "Como você sincronizaria threads em Swift?", respostas: [
+                Resposta(texto: "Usar NSLock ou DispatchSemaphore", correta: true),
+                Resposta(texto: "Não é necessário", correta: false),
+                Resposta(texto: "Usar sleep", correta: false),
+                Resposta(texto: "Não há forma", correta: false)
             ]),
-            Quiz(id: "quiz_63", pergunta: "O que é navigationController em UIKit?", respostas: [
-                Resposta(texto: "Gerencia uma pilha de view controllers", correta: true),
-                Resposta(texto: "Um botão de navegação", correta: false),
-                Resposta(texto: "Uma view", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
+            Quiz(id: "quiz_63", pergunta: "Como você mediria performance da app?", respostas: [
+                Resposta(texto: "Usar Instruments, Core Animation, memory profiler", correta: true),
+                Resposta(texto: "Só por sensação", correta: false),
+                Resposta(texto: "Não há forma", correta: false),
+                Resposta(texto: "Confiar em testes", correta: false)
             ]),
-            Quiz(id: "quiz_64", pergunta: "Como você navega para outro view controller?", respostas: [
-                Resposta(texto: "Usando navigationController?.pushViewController()", correta: true),
-                Resposta(texto: "Usando segue", correta: false),
-                Resposta(texto: "Usando present()", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
+            Quiz(id: "quiz_64", pergunta: "Como você lidaria com feedback negativo?", respostas: [
+                Resposta(texto: "Ouvir, não tomar como pessoal, aprender e melhorar", correta: true),
+                Resposta(texto: "Reclamar e ignorar", correta: false),
+                Resposta(texto: "Ficar defensivo", correta: false),
+                Resposta(texto: "Desistir", correta: false)
             ])
         ]
+        embaralharRespostas()
     }
 
-    /// Lista 5 de quizzes (novas perguntas)
+    /// Lista 5 de quizzes (perguntas sobre UI + comportamentais finais)
     private func carregarLista5() {
         self.quizzes = [
-            Quiz(id: "quiz_65", pergunta: "O que é view controller modal?", respostas: [
-                Resposta(texto: "Um view controller apresentado sobre outro", correta: true),
-                Resposta(texto: "Um view controller com animação", correta: false),
-                Resposta(texto: "Um view controller em navegação", correta: false),
-                Resposta(texto: "Um tipo de dado", correta: false)
+            Quiz(id: "quiz_65", pergunta: "Como você criaria uma UI responsiva?", respostas: [
+                Resposta(texto: "Usar Auto Layout com Safe Area e Size Classes", correta: true),
+                Resposta(texto: "Usar frames fixos", correta: false),
+                Resposta(texto: "Não é possível", correta: false),
+                Resposta(texto: "Fazer versão para cada tamanho", correta: false)
             ]),
-            Quiz(id: "quiz_66", pergunta: "Como você apresenta um view controller modalmente?", respostas: [
-                Resposta(texto: "Usando present()", correta: true),
-                Resposta(texto: "Usando push()", correta: false),
-                Resposta(texto: "Usando show()", correta: false),
+            Quiz(id: "quiz_66", pergunta: "O que é Safe Area?", respostas: [
+                Resposta(texto: "Área segura dentro da view para não sobrepor elementos do iOS", correta: true),
+                Resposta(texto: "Um tipo de validação", correta: false),
+                Resposta(texto: "Uma função de segurança", correta: false),
+                Resposta(texto: "Um protocolo", correta: false)
+            ]),
+            Quiz(id: "quiz_67", pergunta: "Como você trataria diferentes orientações de tela?", respostas: [
+                Resposta(texto: "Usar traits, Auto Layout, e observar rotações", correta: true),
+                Resposta(texto: "Fazer interface diferente para cada uma", correta: false),
+                Resposta(texto: "Não suportar orientação", correta: false),
+                Resposta(texto: "Usar valores fixos", correta: false)
+            ]),
+            Quiz(id: "quiz_68", pergunta: "Como você validaria entrada de usuário?", respostas: [
+                Resposta(texto: "Validar tipo, comprimento, regex quando necessário", correta: true),
+                Resposta(texto: "Aceitar qualquer entrada", correta: false),
+                Resposta(texto: "Não validar", correta: false),
+                Resposta(texto: "Validar apenas no servidor", correta: false)
+            ]),
+            Quiz(id: "quiz_69", pergunta: "Como você implementaria Dark Mode?", respostas: [
+                Resposta(texto: "Usar UIColor semantic colors e traço colorScheme", correta: true),
+                Resposta(texto: "Cores fixas", correta: false),
+                Resposta(texto: "Não suportar", correta: false),
+                Resposta(texto: "Um único tema", correta: false)
+            ]),
+            Quiz(id: "quiz_70", pergunta: "Como você acessibilizaria seu app?", respostas: [
+                Resposta(texto: "VoiceOver, contrast adequado, labels descritivos", correta: true),
+                Resposta(texto: "Não é necessário", correta: false),
+                Resposta(texto: "Só para usuários específicos", correta: false),
                 Resposta(texto: "Não é possível", correta: false)
             ]),
-            Quiz(id: "quiz_67", pergunta: "O que é UIButton em UIKit?", respostas: [
-                Resposta(texto: "Um componente que responde a toques", correta: true),
-                Resposta(texto: "Um label", correta: false),
-                Resposta(texto: "Uma view", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
+            Quiz(id: "quiz_71", pergunta: "Como você mediria satisfação do usuário?", respostas: [
+                Resposta(texto: "Reviews, analytics, feedback, crash reports", correta: true),
+                Resposta(texto: "Só números de downloads", correta: false),
+                Resposta(texto: "Não há como", correta: false),
+                Resposta(texto: "Assumir que está bom", correta: false)
             ]),
-            Quiz(id: "quiz_68", pergunta: "Como você adiciona uma ação a um botão?", respostas: [
-                Resposta(texto: "Usando addTarget()", correta: true),
-                Resposta(texto: "Usando setAction()", correta: false),
-                Resposta(texto: "Usando onTap()", correta: false),
-                Resposta(texto: "Não é possível", correta: false)
+            Quiz(id: "quiz_72", pergunta: "Como você trataria internacionalização?", respostas: [
+                Resposta(texto: "Strings.strings files, NSLocalizedString, locale settings", correta: true),
+                Resposta(texto: "Hardcoded em português", correta: false),
+                Resposta(texto: "Não é necessário", correta: false),
+                Resposta(texto: "Cada idioma é app diferente", correta: false)
             ]),
-            Quiz(id: "quiz_69", pergunta: "O que é UILabel em UIKit?", respostas: [
-                Resposta(texto: "Um componente que exibe texto", correta: true),
-                Resposta(texto: "Um botão", correta: false),
-                Resposta(texto: "Um campo de entrada", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
+            Quiz(id: "quiz_73", pergunta: "Como você se comportaria em aprendizado contínuo?", respostas: [
+                Resposta(texto: "Dedicar tempo, estudar novos padrões, compartilhar conhecimento", correta: true),
+                Resposta(texto: "Esperar que ensinem", correta: false),
+                Resposta(texto: "Não aprender mais", correta: false),
+                Resposta(texto: "Apenas quando obrigado", correta: false)
             ]),
-            Quiz(id: "quiz_70", pergunta: "Como você define o texto de um label?", respostas: [
-                Resposta(texto: "label.text = \"Texto\"", correta: true),
-                Resposta(texto: "label.setText(\"Texto\")", correta: false),
-                Resposta(texto: "label.value = \"Texto\"", correta: false),
-                Resposta(texto: "label.content = \"Texto\"", correta: false)
+            Quiz(id: "quiz_74", pergunta: "O que é Accessibility Inspector?", respostas: [
+                Resposta(texto: "Ferramenta para testar acessibilidade do app", correta: true),
+                Resposta(texto: "Uma função", correta: false),
+                Resposta(texto: "Um protocolo", correta: false),
+                Resposta(texto: "Uma variável", correta: false)
             ]),
-            Quiz(id: "quiz_71", pergunta: "O que é UITextField em UIKit?", respostas: [
-                Resposta(texto: "Um campo de entrada de texto", correta: true),
-                Resposta(texto: "Um label", correta: false),
-                Resposta(texto: "Um botão", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
+            Quiz(id: "quiz_75", pergunta: "Como você trataria battery consumption?", respostas: [
+                Resposta(texto: "Evitar background tasks desnecessárias, usar efficiency", correta: true),
+                Resposta(texto: "Não há como controlar", correta: false),
+                Resposta(texto: "Não é importância", correta: false),
+                Resposta(texto: "Executar tudo em background", correta: false)
             ]),
-            Quiz(id: "quiz_72", pergunta: "Como você obtém o texto de um UITextField?", respostas: [
-                Resposta(texto: "textField.text", correta: true),
-                Resposta(texto: "textField.value", correta: false),
-                Resposta(texto: "textField.getString()", correta: false),
-                Resposta(texto: "textField.content", correta: false)
+            Quiz(id: "quiz_76", pergunta: "Como você colaboraria em projeto grande?", respostas: [
+                Resposta(texto: "Git, code review, comunicação, dividir tasks", correta: true),
+                Resposta(texto: "Fazer tudo sozinho", correta: false),
+                Resposta(texto: "Não colaborar", correta: false),
+                Resposta(texto: "Código isolado", correta: false)
             ]),
-            Quiz(id: "quiz_73", pergunta: "O que é UIScrollView em UIKit?", respostas: [
-                Resposta(texto: "Um componente que permite scrolling", correta: true),
-                Resposta(texto: "Um botão", correta: false),
-                Resposta(texto: "Um label", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
+            Quiz(id: "quiz_77", pergunta: "Como você debugaria memory leak?", respostas: [
+                Resposta(texto: "Usar Instruments Memory Profiler, Leaks, buscar retain cycles", correta: true),
+                Resposta(texto: "Ignorar", correta: false),
+                Resposta(texto: "Não há ferramentas", correta: false),
+                Resposta(texto: "Reiniciar app", correta: false)
             ]),
-            Quiz(id: "quiz_74", pergunta: "O que é contentSize em UIScrollView?", respostas: [
-                Resposta(texto: "Tamanho do conteúdo dentro do scroll", correta: true),
-                Resposta(texto: "Tamanho da view visível", correta: false),
-                Resposta(texto: "Número de itens", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
+            Quiz(id: "quiz_78", pergunta: "Como você manteria interesse no trabalho?", respostas: [
+                Resposta(texto: "Buscar desafios, aprender, ajudar time, celebrar sucessos", correta: true),
+                Resposta(texto: "Fazer rotina", correta: false),
+                Resposta(texto: "Perder motivação", correta: false),
+                Resposta(texto: "Apenas trabalhar", correta: false)
             ]),
-            Quiz(id: "quiz_75", pergunta: "O que é UIImageView em UIKit?", respostas: [
-                Resposta(texto: "Um componente que exibe imagens", correta: true),
-                Resposta(texto: "Um label", correta: false),
-                Resposta(texto: "Um botão", correta: false),
-                Resposta(texto: "Um tipo de dados", correta: false)
+            Quiz(id: "quiz_79", pergunta: "Como você entregaria produto com qualidade?", respostas: [
+                Resposta(texto: "Testes, code review, atenção a detalhe, iteração", correta: true),
+                Resposta(texto: "Rápido sem validar", correta: false),
+                Resposta(texto: "Deixar para depois", correta: false),
+                Resposta(texto: "Qualidade custa", correta: false)
             ]),
-            Quiz(id: "quiz_76", pergunta: "Como você define uma imagem em UIImageView?", respostas: [
-                Resposta(texto: "imageView.image = UIImage(named: \"imagem\")", correta: true),
-                Resposta(texto: "imageView.setImage(\"imagem\")", correta: false),
-                Resposta(texto: "imageView.src = \"imagem\"", correta: false),
-                Resposta(texto: "imageView.picture = \"imagem\"", correta: false)
-            ]),
-            Quiz(id: "quiz_77", pergunta: "O que é viewDidLoad() em UIViewController?", respostas: [
-                Resposta(texto: "Método chamado quando a view foi carregada", correta: true),
-                Resposta(texto: "Método chamado quando a view aparece", correta: false),
-                Resposta(texto: "Método chamado quando a view desaparece", correta: false),
-                Resposta(texto: "Um tipo de variável", correta: false)
-            ]),
-            Quiz(id: "quiz_78", pergunta: "O que é viewWillAppear() em UIViewController?", respostas: [
-                Resposta(texto: "Método chamado antes da view aparecer", correta: true),
-                Resposta(texto: "Método chamado depois da view aparecer", correta: false),
-                Resposta(texto: "Método chamado quando a view é carregada", correta: false),
-                Resposta(texto: "Método chamado quando a view desaparece", correta: false)
-            ]),
-            Quiz(id: "quiz_79", pergunta: "Como você recarrega dados de uma tableview?", respostas: [
-                Resposta(texto: "tableView.reloadData()", correta: true),
-                Resposta(texto: "tableView.reload()", correta: false),
-                Resposta(texto: "tableView.refresh()", correta: false),
-                Resposta(texto: "tableView.update()", correta: false)
-            ]),
-            Quiz(id: "quiz_80", pergunta: "O que é delegate em UIKit?", respostas: [
-                Resposta(texto: "Objeto que implementa comportamentos de outro objeto", correta: true),
-                Resposta(texto: "Um tipo de função", correta: false),
-                Resposta(texto: "Um tipo de variável", correta: false),
-                Resposta(texto: "Um tipo de dado", correta: false)
+            Quiz(id: "quiz_80", pergunta: "Qual é sua visão como desenvolvedor iOS?", respostas: [
+                Resposta(texto: "Crescer, ajudar outros, entregar valor, inovar", correta: true),
+                Resposta(texto: "Só ganhar dinheiro", correta: false),
+                Resposta(texto: "Não tenho visão", correta: false),
+                Resposta(texto: "Apenas seguir tarefas", correta: false)
             ])
         ]
+        embaralharRespostas()
+    }
+
+    /// Embaralha as respostas de cada pergunta mantendo a resposta correta identificável
+    private func embaralharRespostas() {
+        self.quizzes = self.quizzes.map { quiz in
+            let respostasEmbaralhadas = quiz.respostas.shuffled()
+            return Quiz(id: quiz.id, pergunta: quiz.pergunta, respostas: respostasEmbaralhadas)
+        }
     }
 
     /// Retorna o quiz atual
